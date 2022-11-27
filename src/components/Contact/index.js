@@ -19,21 +19,21 @@ const Contact = () => {
         e.preventDefault()
 
         emailjs
-        .sendForm(
-            'gmail',
-            'template_eakr4gf',
-            refForm.current,
-            'service_oqidjrd'
-        )
-        .then(
-            () => {
-              alert('Message successfully sent!')
-              window.location.reload(false)
-            },
-            () => {
-              alert('Failed to send the message, please try again')
-            }
-          )
+            .sendForm(
+                'gmail',
+                'template_eakr4gf',
+                refForm.current,
+                'service_oqidjrd'
+            )
+            .then(
+                () => {
+                    alert('Message successfully sent!')
+                    window.location.reload(false)
+                },
+                () => {
+                    alert('Failed to send the message, please try again')
+                }
+            )
     }
 
     return (
@@ -48,17 +48,16 @@ const Contact = () => {
                         />
                     </h1>
                     <p>
-                        I am interested in freelance opportunities - especially on ambitious
-                        or large projects. However, if you have any other requests or
+                        I am interested in working for company with a friendly team on various interesting projects. However, if you have any other requests or
                         questions, don't hesitate to contact me using below form either.
                     </p>
                     <div className="contact-form">
-                        <form ref={refForm} onSubmit={sendEmail}> 
+                        <form ref={refForm} onSubmit={sendEmail}>
                             <ul>
-                                <li className="half"> 
+                                <li className="half">
                                     <input type="text" name="name" placeholder="Name" required />
                                 </li>
-                                <li className="half"> 
+                                <li className="half">
                                     <input type="email" name="email" placeholder="Email" required />
                                 </li>
                                 <li>
