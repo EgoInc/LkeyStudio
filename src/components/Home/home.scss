@@ -3,6 +3,7 @@ $additional-color: #303A52;
 $text-color: #c1b5c1;
 
 .home-page {
+  
     .text-zone {
       position: absolute;
       left: 10%;
@@ -19,14 +20,17 @@ $text-color: #c1b5c1;
       margin: 0;
       font-family: 'Coolvetica';
       font-weight: 400;
+
+      .animatedSubText {
+        color: white;
+      }
   
       &:before {
         content: '<h1>';
         font-family: 'La Belle Aurore', cursive;
         color: $primary-color;
-        font-size: 18px;
+        font-size: 25px;
         position: absolute;
-        margin-top: -40px;
         left: -15px;
         opacity: 0.6;
       }
@@ -35,7 +39,7 @@ $text-color: #c1b5c1;
         content: '<h1/>';
         font-family: 'La Belle Aurore', cursive;
         color: $primary-color;
-        font-size: 18px;
+        font-size: 25px;
         position: absolute;
         margin-top: 18px;
         margin-left: 20px;
@@ -59,15 +63,15 @@ $text-color: #c1b5c1;
       color: #8d8d8d;
       margin-top: 20px;
       font-weight: 400;
-      font-size: 11px;
-      font-family: sans-serif;
+      font-size: 21px;
+      font-family: 'Coolvetica';
       letter-spacing: 3px;
       animation: fadeIn 1s 1.8s backwards;
     }
   
     .flat-button {
       color: $primary-color;
-      font-size: 13px;
+      font-size: 19px;
       font-weight: 400;
       letter-spacing: 4px;
       font-family: sans-serif;
@@ -84,8 +88,10 @@ $text-color: #c1b5c1;
         color: #333;
       }
     }
+
   }
   
+
   
   
   @media screen and (max-width: 1200px) {

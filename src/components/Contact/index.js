@@ -3,10 +3,14 @@ import "./contact.scss";
 import AnimatedLetters from "../AnimatedLetters";
 import { useState, useEffect, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { FormattedMessage } from "react-intl";
 
 const Contact = () => {
     const [letterClass, setLetterClass] = useState('text-animate')
     const refForm = useRef()
+    const [from_name, setName] = useState('');
+    const [phone, setPhone] = useState('');
+    const [message, setMessage] = useState('');
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -15,26 +19,23 @@ const Contact = () => {
         return () => clearTimeout(timer);
     }, [])
 
+    let startArray;
+    if (sessionStorage.getItem('lang')=='ru-RU'){
+        startArray = ['П', 'р', 'и', 'с', 'т', 'у', 'п', 'и', 'м', '?'];
+    } else {
+        startArray = ['C', 'o', 'n', 't', 'a', 'c', 't', ' ', 'm', 'e'];
+    }
+
     const sendEmail = (e) => {
         e.preventDefault()
 
-        emailjs
-            .sendForm(
-                'gmail',
-                'template_eakr4gf',
-                refForm.current,
-                'service_oqidjrd'
-            )
-            .then(
-                () => {
-                    alert('Message successfully sent!')
-                    window.location.reload(false)
-                },
-                () => {
-                    alert('Failed to send the message, please try again')
-                }
-            )
+        emailjs.send("service_rnwnb4b","template_jrh51x5", "b7l8bjyJzKz-5Qlu5", {
+            from_name: from_name,
+            phone: phone,
+            message: message,
+            });
     }
+
 
     return (
         <>
@@ -43,28 +44,27 @@ const Contact = () => {
                     <h1>
                         <AnimatedLetters
                             letterClass={letterClass}
-                            strArray={['C', 'o', 'n', 't', 'a', 'c', 't', ' ', 'm', 'e']}
+                            strArray={startArray}
                             idx={15}
                         />
                     </h1>
-                    <p>
-                        I am interested in working for company with a friendly team on various interesting projects. However, if you have any other requests or
-                        questions, don't hesitate to contact me using below form either.
-                    </p>
+                    <p><FormattedMessage id='contactNow'/></p>
+                    
+                    <a href="https://api.whatsapp.com/send/?phone=79940199114" target="_blank">What's App</a>
+                    <br/>
+                    <a href="https://t.me/+79940199114" target="_blank">Telegram</a>
+                
                     <div className="contact-form">
                         <form ref={refForm} onSubmit={sendEmail}>
                             <ul>
                                 <li className="half">
-                                    <input type="text" name="name" placeholder="Name" required />
+                                    <input type="text" name="from_name" placeholder="ФИО" required onChange={(e) => {setName(e.target.value);}} />
                                 </li>
                                 <li className="half">
-                                    <input type="email" name="email" placeholder="Email" required />
+                                    <input type="text" name="phone" placeholder="Номер телефона" required onChange={(e) => {setPhone(e.target.value);}} />
                                 </li>
                                 <li>
-                                    <input type="text" name="subject" placeholder="Subject" required />
-                                </li>
-                                <li>
-                                    <textarea name="message" placeholder="Message" required></textarea>
+                                    <textarea name="message" placeholder="Описание сайта или ссылка на документ" required onChange={(e) => {setMessage(e.target.value);}} ></textarea>
                                 </li>
                                 <li>
                                     <input type="submit" className="flat-button" value="SEND" />
@@ -73,6 +73,7 @@ const Contact = () => {
                         </form>
                     </div>
                 </div>
+
             </div>
             <Loader type="line-scale-pulse-out" />
         </>

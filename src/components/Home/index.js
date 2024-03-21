@@ -6,27 +6,20 @@ import { Link } from 'react-router-dom';
 import AnimatedLetters from '../AnimatedLetters';
 import Logo from './Logo';
 import Loader from 'react-loaders';
+import { FormattedMessage, useIntl } from 'react-intl'
 
 const Home = () => {
+    const intl = useIntl()
+    console.log()
     const [letterClass, setLetterClass] = useState('text-animate')
 
-    const nameArray = ['i', 's', 'o', 'n', 'g']
-    const jobArray = [
-        'w',
-        'e',
-        'b',
-        ' ',
-        'd',
-        'e',
-        'v',
-        'e',
-        'l',
-        'o',
-        'p',
-        'e',
-        'r',
-        '.',
-    ]
+    const nameArray = ['L', 'K','e', 'y']
+    let jobArray;
+    if (sessionStorage.getItem("lang")==="ru-RU"){
+        jobArray = ['в', 'е', 'б', '-', 'р', 'а', 'з', 'р', 'а', 'б', 'о', 'т', 'к', 'а', ' ',];
+    } else {
+        jobArray = ['w', 'e', 'b', ' ', 'd', 'e', 'v', 'e', 'l', 'o', 'p', 'm', 'e', 'n', 't', ' ',];
+    }
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -40,18 +33,15 @@ const Home = () => {
             <div className="container home-page">
                 <div className="text-zone">
                     <h1>
-                        <span className={letterClass}>H</span>
-                        <span className={`${letterClass} _12`}>i,</span>
                         <br />
-                        <span className={`${letterClass} _13`}>I</span>
-                        <span className={`${letterClass} _14`}>'m</span>
-                        <img src={LogoTitle} alt="developer" />
                         <AnimatedLetters letterClass={letterClass} strArray={nameArray} idx={15} />
+                        <span className={`${letterClass} _12`}> </span>
+                        <span className={`${letterClass} _14`}>    Studio</span>
                         <br />
                         <AnimatedLetters letterClass={letterClass} strArray={jobArray} idx={22} />
                     </h1>
-                    <h2> Frontend Developer </h2>
-                    <Link to="/contact" className="flat-button">CONTACT ME</Link>
+                    <h2> <FormattedMessage id="slogan"/> </h2>
+                    <Link to="/contact" className="flat-button"><FormattedMessage id="contactMe"/> </Link>
                 </div>
                 <Logo />
             </div>
