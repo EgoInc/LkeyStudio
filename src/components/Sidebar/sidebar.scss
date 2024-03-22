@@ -1,5 +1,5 @@
-$primary-color: #B082B0;
-$additional-color: #303A52;
+$primary-color: #b082b0;
+$additional-color: #303a52;
 
 .nav-bar {
   background: #181818;
@@ -120,7 +120,7 @@ $additional-color: #303A52;
       a {
         padding: 7px 0;
         display: block;
-        font-size: 15px;
+        font-size: 23px;
         line-height: 16px;
         color: #4d4d4e;
       }
@@ -131,5 +131,41 @@ $additional-color: #303A52;
         }
       }
     }
+  }
+}
+$bg: #332f35;
+$fg: lighten($bg, 20%);
+$borderWidth: 2px;
+
+.radio-group {
+  width: 30px;
+  border: solid $borderWidth $primary-color;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-left: 13px;
+  text-align: center;
+
+  input[type="radio"] {
+    position: absolute;
+    visibility: hidden;
+    display: none;
+  }
+
+  label {
+    color: lighten($bg, 40%);
+    display: inline-block;
+    cursor: pointer;
+    padding: 8px 5px;
+  }
+
+  input[type="radio"]:checked + label {
+    color: rgba(255, 255, 255, 0.566);
+    background: $primary-color;
+  }
+
+  label + input[type="radio"] + label {
+    border-top: solid $borderWidth $primary-color;
   }
 }
