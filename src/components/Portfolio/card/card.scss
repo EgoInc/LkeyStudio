@@ -1,0 +1,136 @@
+$opacity-transition: opacity 1.2 ease-in-out;
+$primary-color: #b082b0;
+
+.modal-header {
+    width: 100%;
+    align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+
+    .heading {
+        color: black;
+        font-size: 21px;
+        line-height: 20px;
+        font-family: "Roboto Flex";
+        font-weight: 900;
+    }
+}
+
+.close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    height: 16px;
+    text-decoration: none;
+    width: 16px;
+
+    svg {
+        width: 16px;
+    }
+}
+
+.modal-wrapper {
+    align-items: center;
+    // background: rgba(0, 0, 0, 0.7);
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+#modal {
+    opacity: 0;
+    transition: $opacity-transition;
+    visibility: hidden;
+
+    &:target {
+        opacity: 1;
+        visibility: visible;
+
+        .modal-body {
+            opacity: 1;
+            transform: translateY(1);
+        }
+    }
+
+    .modal-body {
+        padding: 15px;
+        max-width: 85%;
+        opacity: 0;
+        // transform: translateY(-100px);
+        transition: $opacity-transition;
+        width: 100%;
+        z-index: 1;
+        box-shadow: 0px 0px 100px 100px rgba(34, 60, 80, 0.22);
+        display: flex;
+        flex-direction: column
+    }
+}
+
+.outside-trigger {
+    bottom: 0;
+    cursor: default;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.button__link {
+    text-decoration: none;
+}
+
+
+.card {
+    display: flex;
+    background-color: white;
+    color: black;
+    border-radius: 0px 15px 0px 15px;
+    // padding: 1.5rem;s
+    font-size: 15px;
+    line-height: 20px;
+    font-family: "Roboto Flex";
+}
+
+.cardAdd {
+    border: 1px solid $primary-color;
+    width: 350px;
+    height: 230px;
+
+    a {
+        width: 100%;
+        height: 100%;
+    }
+
+    .content-wrapper {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        align-items: end;
+
+        .card-textContainer {
+            height: 20%;
+            width: 100%;
+            background-color: $primary-color;
+            border-bottom-left-radius: 15px;
+            padding-left: 13px;
+
+            p {
+                color: black;
+                font-size: 15px;
+                font-weight: 800;
+                letter-spacing: 2px;
+            }
+        }
+    }
+}
+
+.modal-content-container {
+    width: 100%;
+    height: 100%;
+}

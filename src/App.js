@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Sidebar from "./components/Sidebar";
+import Portfolio from "./components/Portfolio";
 
 //Lang settings
 import { IntlProvider } from "react-intl";
@@ -18,13 +19,11 @@ function App() {
     console.log("savedItem", savedItem);
     var lang;
     if (savedItem !== undefined && savedItem !== null) {
-      var parsedItem = JSON.parse(savedItem);
-      if (parsedItem === "ru-RU") {
+      if (savedItem === "ru-RU") {
         lang = LOCALES.RUS;
       } else {
         lang = LOCALES.ENG;
       }
-      console.log("parsedItem", parsedItem);
     } else if (savedItem === undefined) {
       lang = LOCALES.RUS;
       sessionStorage.setItem("lang", JSON.stringify("ru-RU"));
@@ -36,12 +35,10 @@ function App() {
   });
 
   const onLanguageChanged = (lang) => {
-    console.log("lang", lang, JSON.stringify(lang));
-    sessionStorage.setItem("lang", JSON.stringify(lang));
+    sessionStorage.setItem("lang", lang);
     setLanguage(lang === "ru-RU" ? LOCALES.RUS : LOCALES.ENG);
   };
 
-  console.log("language", language, LOCALES.RUS);
   return (
     <>
       <IntlProvider
@@ -57,6 +54,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="portfolio" element={<Portfolio />} />
           </Route>
         </Routes>
       </IntlProvider>

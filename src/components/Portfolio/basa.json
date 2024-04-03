@@ -1,0 +1,15 @@
+{
+    "projectsArr": [
+        {
+            "nameRU": "Онлайн-школа КодоЗавры",
+            "nameEN": "Online school CodeSaurs",
+            "descriptionRU": "Проект КодоЗавры – уникальный проект онлайн-школы программирования для детей с необычным, ярким дизайном, вдохновленным стилем старых компьютерных игр. \n Сайт разделен на три основные части: гостевую, для представления курсов и описания учебного процесса; часть учеников, включающую календарь занятий и выполнение задач; и часть администратора для добавления новых курсов и управления контентом. \n Реализация проекта требовала разработки сложной схемы базы данных (для хранения информации о курсах, учениках, заданиях и расписании занятий),  глубокого понимания требований пользователей и тщательного тестирования функционала. ",
+            "descriptionEN": "The Codosaurus project is a unique project of an online programming school for children with an unusual, bright design inspired by the style of old computer games. \n The site is divided into three main parts: the guest part, for presenting courses and describing the learning process; the student part, including the class calendar and completing tasks; and the administrator part for adding new courses and managing content. \n The realization of the project required the development of a complex database schema (for storing information about courses, students, assignments and class schedules), a deep understanding of user requirements and thorough testing of functionality.",
+            "durationRU": "2 месяца",
+            "durationEN": "2 month",
+            "priceRU": "200.000 ₽",
+            "priceEN": "2500 $",
+            "images": ["https://downloader.disk.yandex.ru/preview/b6ed96eb534b17e8a2af054fef939a8533e7932f42b996f2f5898c4919142e2d/65fda6a6/J1C-hvQ-tRfPl_Z4DKz5fT_A9Or-svQJ8gRVmCvNaaU6RtN2iBdZ8foDzRuWyRtq0UOVl6Iv0XuYKfjl_-d34Q%3D%3D?uid=0&filename=main.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=2048x2048", "https://disk.yandex.com.am/i/eZQ7U9j2UGtHww", "https://disk.yandex.com.am/i/WxkcThd2sOyDMQ", "https://disk.yandex.com.am/i/1ZI9N-N95I9JAQ"]
+        }
+    ]
+}

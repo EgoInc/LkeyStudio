@@ -20,7 +20,7 @@ const Home = () => {
     } else {
         jobArray = ['w', 'e', 'b', ' ', 'd', 'e', 'v', 'e', 'l', 'o', 'p', 'm', 'e', 'n', 't', ' ',];
     }
-
+    console.log(`Language ${sessionStorage.getItem("lang")} vs ${"ru-RU"} = ${sessionStorage.getItem("lang")==="ru-RU"}`)
     useEffect(() => {
         const timer = setTimeout(() => {
             setLetterClass('text-animate-hover')
